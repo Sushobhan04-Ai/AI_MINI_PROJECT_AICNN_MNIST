@@ -67,7 +67,7 @@ def run_example():
     
     print("✓ Predictions for first 5 test images:")
     for i, (pred, probs) in enumerate(zip(predicted_classes, predictions)):
-        true_label = y_test[i].argmax() if len(y_test[i].shape) > 0 else y_test[i]
+        true_label = y_test[i].argmax()
         confidence = probs[pred] * 100
         status = "✓" if pred == true_label else "✗"
         print(f"  Image {i+1}: Predicted={pred}, True={true_label}, "
@@ -83,9 +83,13 @@ def run_example():
     print("\n[Step 8] Generating visualizations...")
     recognizer.plot_training_history('training_history.png')
     recognizer.plot_confusion_matrix(results['confusion_matrix'], 'confusion_matrix.png')
+    
+    # Get predictions for visualization samples
+    viz_images = x_test[:10]
+    viz_predictions, _ = recognizer.predict(viz_images)
     recognizer.visualize_predictions(
-        x_test[:10], y_test[:10], 
-        results['predictions'][:10],
+        viz_images, y_test[:10], 
+        viz_predictions,
         save_path='predictions.png'
     )
     print("✓ Visualizations saved:")
