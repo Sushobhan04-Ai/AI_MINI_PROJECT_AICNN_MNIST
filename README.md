@@ -62,6 +62,16 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Quick Start with Example
+
+To run a complete end-to-end example:
+
+```bash
+python example.py
+```
+
+This will train the model, evaluate it, and generate all visualizations.
+
 ### Training the Model
 
 To train the CNN model on the MNIST dataset:
@@ -119,6 +129,7 @@ AI_MINI_PROJECT_AICNN_MNIST/
 │
 ├── mnist_cnn.py          # Main CNN implementation and training
 ├── predict.py            # Prediction script for inference
+├── example.py            # Complete end-to-end example
 ├── requirements.txt      # Python dependencies
 ├── .gitignore           # Git ignore file
 ├── README.md            # Project documentation
